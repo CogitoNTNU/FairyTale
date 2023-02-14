@@ -1,0 +1,11 @@
+Dette er et testprosjekt for å lære git Nå skal jeg endre på ReadMe filen: Git i VS:
+
+git clone «link». Muligens åpne manuelt i VS
+lage egen branch: git branch feat/det_du_gjør
+git checkout feat/det_du_gjør
+gjør endringer og sjekk status(du kan se på source control) git status
+git add filenDuVilEndre (fra status. Kan skrive . for å få alle filene)
+git commit -m «made feat/ det_du_gjør (eller noe sånn)
+git push (og kopier melding)
+Gå til git og lag en pull request og merge branchen
+gå så til main ved git checkout main og git pull.
