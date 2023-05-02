@@ -53,9 +53,12 @@ generateButton = tk.Button(frame,
                         command = printAndRetrieveInput,)
 generateButton.pack()
   
-bg = tk.PhotoImage(file = "book.png")
+bg = tk.PhotoImage(file = r"FairyTale\src\book.png") 
 # open-old-book-blank-texture-background-full-frame-vintage-fairy-tale-concept-78679471.jpg
-label1 = tk.Label(frame, image = bg, width=700, height=400)
+label1 = tk.Label(frame, image = bg, width=700, height=600)
+label1.place(relx=0,
+             rely=0,
+             anchor='ne')
 label1.pack()
 
 # Label Creation
