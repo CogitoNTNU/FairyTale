@@ -1,5 +1,8 @@
 import torch
 
+### comment out the transformer you want to use
+
+
 
 # initialize tokenizer and model from pretrained GPT2 model
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
@@ -30,17 +33,6 @@ model = GPT2LMHeadModel.from_pretrained('gpt2')
 
 
 
-# def findPunct(text):
-#     for i in range(len(text)-1,0, -1):
-#         print(i)
-#         if (text[i] == '.'):
-#             text[:i-1]
-#             text += str('..')
-#             return text
-
-
-
-
 
 
 import tkinter as tk
@@ -61,7 +53,6 @@ frame.configure(bg="#8da683")
 
 def printAndRetrieveInput():
     inp = inputtxt.get(1.0, "end-1c")
-    # lbl.config(text = "Your prompt: "+inp, bg='#bedab1')
     prompt = inp
     inputs = tokenizer.encode(prompt, return_tensors = 'pt')
 
@@ -69,10 +60,13 @@ def printAndRetrieveInput():
     # outputs = model.generate(inputs, max_length= 200, do_sample=True, temperature=5)
     outputs = model.generate(inputs, max_length=100, do_sample=True, temperature=0.7)
 
+    # decoding the text that has been generated
     fairytale = tokenizer.decode(outputs[0],skip_special_tokens=True)
 
+    # adding fairytale to a label
     lbl = tk.Label(frame, text = fairytale, wraplength=frame.winfo_width()-50,  bg='#bedab1', font=('Calibri',12))
-   
+    
+    # showing the label
     lbl.pack(side='top',pady=10)
  
 
@@ -84,7 +78,7 @@ inputtxt = tk.Text(frame,
                    height = 8,
                    width = 24, bg='#bedab1',font=('Calibri',12) )
   
-
+# making the TextBox visible
 inputtxt.pack(side='top', pady=10)
 
 
@@ -93,6 +87,7 @@ generateButton = tk.Button(frame,
                         text = "Generate", 
                         command = printAndRetrieveInput,)
 
+# making the button visible
 generateButton.pack(side='top',pady=10)
   
 
